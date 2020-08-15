@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<bean id="demo123" class="com.controller.DemoController"></bean>
+
+<!-- HandlerMapping -->
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<property name="urlMap">
+		<map>
+			<!-- 解析出来控制器逻辑名 -->
+			<entry key="demo" value-ref="demo123"></entry>
+		</map>
+	</property>
+</bean>
+<!-- HandlerAdapter -->
+<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+
+<!-- ViewResovler -->
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/"></property>
+	<property name="suffix" value=".jsp"></property>
+</bean>
+</beans>
