@@ -8,12 +8,12 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:springmvc.xml</param-value>
+			<param-value>classpath:springmvc.xml</param-value><!-- 修改配置文件路径和名称，改成classpath: 以后就不会去/WEB-INF/路径下，而是去 src路径下去找了 -->
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>1</load-on-startup><!-- 自启动  为1时，当tomcat启动时这类就会被加载，不然就是第一次访问的时候再加载 -->
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/</url-pattern><!-- 拦截除了jsp以外所有的请求 -->
 	</servlet-mapping>
 </web-app>
